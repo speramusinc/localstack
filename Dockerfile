@@ -2,9 +2,8 @@ FROM localstack/java-maven-node-python:0.10.5
 
 MAINTAINER Waldemar Hummer (waldemar.hummer@gmail.com)
 LABEL authors="Waldemar Hummer (waldemar.hummer@gmail.com), Gianluca Bortoli (giallogiallo93@gmail.com)"
-RUN uname -a
 
-RUN apt-get update
+RUN apk update
 
 # add files required to run "make install"
 ADD Makefile requirements.txt ./
