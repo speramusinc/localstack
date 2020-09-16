@@ -12,7 +12,7 @@ usage:             ## Show this help
 install:           ## Install dependencies in virtualenv
 	(test `which virtualenv` || $(PIP_CMD) install --user virtualenv) && \
 		(test -e $(VENV_DIR) || virtualenv $(VENV_OPTS) $(VENV_DIR)) && \
-		(test ! -e requirements.txt || ($(VENV_RUN); $(PIP_CMD) -q install -r requirements.txt) && \
+		(test ! -e requirements.txt || ($(VENV_RUN); $(PIP_CMD) install -r requirements.txt) && \
 		echo venv_run; $(VENV_RUN); echo test libs; PYTHONPATH=. exec python localstack/services/install.py testlibs)
 
 install-web:       ## Install npm dependencies for dashboard Web UI
